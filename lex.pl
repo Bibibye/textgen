@@ -19,7 +19,7 @@ valence(W,V) :- lex(W,_,_,_,_,V,_).
 % pre post both
 position(W,P) :- lex(W,_,_,_,_,_,P).
 
-% lex(mot, nature, nombre, genre, personne, valence)
+% lex(mot, nature, nombre, genre, personne, valence, position)
 lex('le', det, sing, masc, _,_,_).
 lex('un', det, sing, masc, _,_,_).
 lex('les', det, plur, _, _,_,_).
