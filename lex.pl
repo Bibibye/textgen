@@ -27,11 +27,13 @@ lex('des', det, plur, _, _,_,_).
 lex('la', det, sing, fem, _,_,_).
 lex('une', det, sing, fem, _,_,_).
 
-lex('chien', nc, sing, masc, _,_,_).
-lex('chiens', nc, plur, masc, _,_,_).
-lex('chienne', nc, sing, fem, _,_,_).
-lex('chiennes', nc, plur, fem, _,_,_).
+lex('porte', nc, sing, fem, _,_,_).
+lex('portes', nc, plur, fem, _,_,_).
+
 lex('gnou', nc, sing, masc, _,_,_).
+lex('gnous', nc, plur, masc, _,_,_).
+lex('maroufle', nc, sing, fem, _,_,_).
+lex('maroufles', nc, plur, fem, _,_,_).
 
 lex('mange', v, sing, _, 1, n1,_).
 lex('manges', v, sing, _,2, n1,_).
@@ -73,10 +75,16 @@ lex('à', prep,_,_,_,_,_).
 
 lex('rouge', adj, sing,_,_,_,post).
 lex('rouges', adj, plur,_,_,_,post).
+
 lex('grand', adj, sing, masc,_,_,pre).
 lex('grande', adj, sing, fem,_,_,pre).
 lex('grands', adj, plur, masc,_,_,pre).
 lex('grandes', adj, plur, fem,_,_,pre).
+
+lex('poilu', adj, sing, masc, _,_,post).
+lex('poilus', adj, plur, masc, _,_,post).
+lex('poilue', adj, sing, fem, _,_,post).
+lex('poilues', adj, plur, fem, _,_,post).
 
 lex('je', prn, sing, _, 1,_,_).
 lex('tu', prn, sing, _, 2,_,_).

@@ -60,7 +60,7 @@ prn(prn(Word),N,P) --> [Word], {isa(Word, prn),
 				accord(Word, N, _, P)}.
 
 det(det(Word),N,G) --> [Word], {isa(Word, det),
-				accord(Word, N, G, _)}. 
+				accord(Word, N, G, _)}.
 
 main(T,S):-
 	s(T, S, []).
