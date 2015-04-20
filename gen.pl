@@ -39,17 +39,28 @@ pp(pp(T1,T2)) --> prep(T1), np(T2,_,_,comp).
 
 % terminaux
 v(v(Word),N,P,V) --> [Word], {isa(Word, v),
-		      accord(Word, N, _, P),
-		      valence(Word, V)}.
-vinf(vinf(Word),V) --> [Word], {isa(Word, vinf), valence(Word, V)}.
+			      accord(Word, N, _, P),
+			      valence(Word, V)}.
+
+vinf(vinf(Word),V) --> [Word], {isa(Word, vinf),
+				valence(Word, V)}.
+
 cs(cs(Word)) --> [Word], {isa(Word, cs)}.
+
 prep(prep(Word)) --> [Word], {isa(Word, prep)}.
+
 adj(adj(Word),N,G,P) --> [Word], {isa(Word, adj),
-			accord(Word, N, G, _),
-			position(Word, P)}.
-nc(nc(Word),N,G) --> [Word], {isa(Word, nc), accord(Word, N, G, _)}.
-prn(prn(Word),N,P) --> [Word], {isa(Word, prn), accord(Word, N, _, P)}.
-det(det(Word),N,G) --> [Word], {isa(Word, det), accord(Word, N, G, _)}. 
+				  accord(Word, N, G, _),
+				  position(Word, P)}.
+
+nc(nc(Word),N,G) --> [Word], {isa(Word, nc),
+			      accord(Word, N, G, _)}.
+
+prn(prn(Word),N,P) --> [Word], {isa(Word, prn),
+				accord(Word, N, _, P)}.
+
+det(det(Word),N,G) --> [Word], {isa(Word, det),
+				accord(Word, N, G, _)}. 
 
 main(T,S):-
 	s(T, S, []).
