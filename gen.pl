@@ -5,7 +5,7 @@ s(s(T1,T2)) --> np(T1,N,P,_), vp(T2,N,P).
 
 % syntagme nominal
 np(np(T),N,P,suj) --> prn(T,N,P).
-np(np(T1,T2),N,3,comp) --> det(T1,N,G), n(T2,N,G).
+np(np(T1,T2),N,troisieme,comp) --> det(T1,N,G), n(T2,N,G).
 n(n(T),N,G) --> nc(T,N,G).
 
 % syntagme nominal complexe
@@ -16,7 +16,7 @@ n(n(T1,T2,T3),N,G) --> adj(T1,N,G,pre), nc(T2,N,G), adj(T3,N,G,post).
 
 % syntagme verbal
 vp(vp(T),N,P) --> v(T,N,P,n0).
-vp(vp(T1, T2),N,P) --> v(T1,N,P,n1), np(T2,_,_,comp).
+vp(vp(T1,T2),N,P) --> v(T1,N,P,n1), np(T2,_,_,comp).
 vp(vp(T1,T2),N,P) --> v(T1,N,P,comp), comp(T2).
 vp(vp(T1,T2),N,P) --> v(T1,N,P,vcomp), vcomp(T2).
 % vp(N,P) --> v(N,P), np(_,_,comp), pp.
@@ -24,7 +24,7 @@ vp(vp(T1,T2),N,P) --> v(T1,N,P,vcomp), vcomp(T2).
 
 % infinitif
 vcomp(vcomp(T)) --> vinf(T,n0).
-vcomp(vcomp(T1, T2)) --> vinf(T1,n1), np(T2,_,_,comp).
+vcomp(vcomp(T1,T2)) --> vinf(T1,n1), np(T2,_,_,comp).
 vcomp(vcomp(T1,T2)) --> vinf(T1,comp), comp(T2).
 vcomp(vcomp(T1,T2)) --> vinf(T1,vcomp), vcomp(T2).
 %vcomp --> vinf, np(_,_,comp), pp.
