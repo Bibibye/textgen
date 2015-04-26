@@ -21,19 +21,19 @@ position(W,P) :- lex(W,_,_,_,_,_,P).
 
 % lex(mot,nature,nombre,genre,personne,valence,position)
 lex('le',det,sing,masc,_,_,_).
-lex('un',det,sing,masc,_,_,_).
-lex('les',det,plur,_,_,_,_).
-lex('des',det,plur,_,_,_,_).
-lex('la',det,sing,fem,_,_,_).
-lex('une',det,sing,fem,_,_,_).
+%lex('un',det,sing,masc,_,_,_).
+%lex('les',det,plur,_,_,_,_).
+%lex('des',det,plur,_,_,_,_).
+%lex('la',det,sing,fem,_,_,_).
+%lex('une',det,sing,fem,_,_,_).
 
-lex('porte',nc,sing,fem,_,_,_).
-lex('portes',nc,plur,fem,_,_,_).
+%lex('porte',nc,sing,fem,_,_,_).
+%lex('portes',nc,plur,fem,_,_,_).
 
 lex('gnou',nc,sing,masc,_,_,_).
-lex('gnous',nc,plur,masc,_,_,_).
-lex('maroufle',nc,sing,fem,_,_,_).
-lex('maroufles',nc,plur,fem,_,_,_).
+%lex('gnous',nc,plur,masc,_,_,_).
+%lex('maroufle',nc,sing,fem,_,_,_).
+%lex('maroufles',nc,plur,fem,_,_,_).
 
 lex('mange',v,sing,_,1,n1,_).
 lex('manges',v,sing,_,2,n1,_).
