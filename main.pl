@@ -1,16 +1,22 @@
-#!/usr/bin/swipl -s -L128m -G128m
+#!/usr/bin/swipl -s
 :- set_prolog_flag(verbose, silent).
 :- initialization(main).
 
-:-['grammar.pl'].
+:-['grammaire.pl'].
 
-print_list([]).
-print_list([H|T]):-print(H), print(' '), print_list(T).
+afficher_liste([]).
+afficher_liste([H|T]):-
+	print(H),
+	print(' '),
+	afficher_liste(T).
 
-print_list2([]).
-print_list2([H|T]):-print_list(H), nl, print_list2(T).
+afficher_liste2([]).
+afficher_liste2([H|T]):-
+	afficher_liste(H),
+	nl,
+	afficher_liste2(T).
 
 main:-
 	setof(S, T^s(T, 1, _, S, []), L),
-	print_list2(L),
+	afficher_liste2(L),
 	halt.

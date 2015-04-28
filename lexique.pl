@@ -1,5 +1,5 @@
 % v vinf cs prep adj nc prn det
-isa(W,X) :- lex(W,X,_,_,_,_,_,_,_).
+est(W,X) :- lex(W,X,_,_,_,_,_,_,_).
 
 % sing plur
 nombre(W,X) :- lex(W,_,X,_,_,_,_,_,_).
@@ -8,7 +8,7 @@ nombre(W,X) :- lex(W,_,X,_,_,_,_,_,_).
 genre(W,X) :- lex(W,_,_,X,_,_,_,_,_).
 
 % 1 2 3
-person(W,X) :- lex(W,_,_,_,X,_,_,_,_).
+personne(W,X) :- lex(W,_,_,_,X,_,_,_,_).
 
 %%
 accord(W,N,G,P) :- lex(W,_,N,G,P,_,_,_,_).
