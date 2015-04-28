@@ -11,6 +11,6 @@ print_list2([]).
 print_list2([H|T]):-print_list(H), nl, print_list2(T).
 
 main:-
-	setof(S, T^s(T, 1, S, []), L),
+	setof(S, T^s(T, 1, _, S, []), L),
 	print_list2(L),
 	halt.
