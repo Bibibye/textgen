@@ -63,6 +63,14 @@ lex('mangent',v,plur,_,3,n1,_,con,con).
 % lex('semblez',v,plur,_,2,vcomp,_,con,con).
 % lex('semblent',v,plur,_,3,vcomp,_,con,con).
 
+lex('entends',v,sing,_,1,vcomp,_,voy,con).
+lex('entends',v,sing,_,2,vcomp,_,voy,con).
+lex('entend',v,sing,_,3,vcomp,_,voy,con).
+lex('entendons',v,plur,_,1,vcomp,_,voy,con).
+lex('entendez',v,plur,_,2,vcomp,_,voy,con).
+lex('entendent',v,plur,_,3,vcomp,_,voy,con).
+
+
 lex('dis',v,sing,_,1,comp,_,con,con).
 lex('dis',v,sing,_,2,comp,_,con,con).
 lex('dit',v,sing,_,3,comp,_,con,con).
@@ -96,6 +104,7 @@ lex('poilue',adj,sing,fem,_,_,post,con,con).
 lex('poilues',adj,plur,fem,_,_,post,con,con).
 
 lex('je',prn,sing,_,1,_,_,con,con).
+lex('j',prn,sing,_,1,_,_,con,voy).
 lex('tu',prn,sing,_,2,_,_,con,con).
 lex('il',prn,sing,masc,3,_,_,voy,con).
 lex('elle',prn,sing,fem,3,_,_,voy,con).
