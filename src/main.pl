@@ -17,6 +17,6 @@ afficher_liste2([H|T]):-
 	afficher_liste2(T).
 
 main:-
-	setof(S, T^s(T, 1, _, S, []), L),
+	setof(S, T^s(T, 1, 1, _, S, []), L),
 	afficher_liste2(L),
 	halt.

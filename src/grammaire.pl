@@ -1,7 +1,8 @@
 :-['lexique.pl'].
 
 % phrase
-s(s(T1,T2),Enchassement,D) --> np(T1,N,P,_,D,F), vp(T2,N,P,F,Enchassement).
+s(s(T1,T2),Enchassement,_,D) --> np(T1,N,P,_,D,F), vp(T2,N,P,F,Enchassement).
+% s(s(T1,T2,T3),Enchassement,1,D) --> s(T1,Enchassement,0,D), cc(T2,F), s(T3,Enchassement,0,F).
 
 % syntagme nominal
 np(np(T),N,P,suj,D,F) --> prn(T,N,P,D,F).
@@ -12,7 +13,7 @@ n(n(T),N,G,D) --> nc(T,N,G,D).
 n(n(T1,T2),N,G,D) --> adj(T1,N,G,pre,D), nc(T2,N,G,_).
 n(n(T1,T2),N,G,D) --> nc(T1,N,G,D), adj(T2,N,G,post,_).
 n(n(T1,T2,T3),N,G,D) --> adj(T1,N,G,pre,D), nc(T2,N,G,_), adj(T3,N,G,post,_).
-%n(N,G) --> nc(N,G), pp.
+% n(N,G) --> nc(N,G), pp.
 
 % syntagme verbal
 vp(vp(T),N,P,D,_) --> v(T,N,P,n0,D).
@@ -31,7 +32,7 @@ vcomp(vcomp(T1,T2),D,1) --> vinf(T1,vcomp,D), vcomp(T2,_,0).
 % vcomp --> vinf, pp, comp.
 
 % subordonnee completive
-comp(comp(T1,T2),Enchassement) --> cs(T1,F), s(T2,Enchassement,F).
+comp(comp(T1,T2),Enchassement) --> cs(T1,F), s(T2,Enchassement,0,F).
 
 % groupe prepositionnel
 pp(pp(T1,T2)) --> prep(T1,F), np(T2,_,_,comp,F).
@@ -47,6 +48,9 @@ vinf(vinf(Mot),V,D) --> [Mot], {est(Mot, vinf),
 				debut(Mot, D)}.
 
 cs(cs(Mot),F) --> [Mot], {est(Mot, cs),
+			  forme(Mot, F)}.
+
+cc(cc(Mot),F) --> [Mot], {est(Mot, cc),
 			  forme(Mot, F)}.
 
 prep(prep(Mot),F) --> [Mot], {est(Mot, prep),
