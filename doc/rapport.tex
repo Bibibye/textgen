@@ -36,11 +36,47 @@
 \begin{document}
 \maketitle
 
-\section{Introduction}
+\section*{Introduction}
 Ce projet, réalisé dans le cadre de l'unité d'enseignement \Terme{Web sémantique, langue et raisonnement}, est un générateur de phrases en français écrit avec \Terme{Prolog}. Ce rapport détaille l'ensemble des phénomènes grammaticaux présents dans les phrases générées, ainsi que leur implémentation.
 
 \section{Phénomènes grammaticaux choisis}
+\begin{itemize}
+\item \textbf{Accord en genre, nombre et personne.} Tous les adjectifs qualificatifs sont accordés correctement, et les verbes conjugués à la bonne personne. 
+  \begin{align*}
+    \text{Exemple :~} \textit{Les grandes maroufles marchent}
+  \end{align*}
 
+\item \textbf{Valence verbale.} Les verbes sont complémentés selon leur valence. 
+  \begin{align*}
+    \text{Exemples :~} 
+    &\textit{Je marche}\\
+    &\textit{Je mange un gnou poilu}\\
+    &\textit{Je semble manger un gnou poilu}\\
+    &\textit{Je dis que je mange un gnou poilu}
+  \end{align*}
+
+\item \textbf{Position de l'adjectif.} Les adjectifs ne peuvent pas être placés n'importe où.
+  \begin{align*}
+    \text{Exemples :~}
+    &\textit{Un grand gnou}\\
+    &\textit{Un gnou poilu}
+  \end{align*}
+
+\item \textbf{L'élision.} Certains mots du lexique ont une forme élidée de manière à éviter les hiatus.
+\begin{align*}
+  \text{Exemples :~}
+  &\textit{Je mange}\\
+  &\textit{J'entend manger le gnou}
+\end{align*}
+
+\item \textbf{La coordination.} Deux phrases peuvent être accolées grâce à des conjonctions de coordination ou locutions conjonctives.
+\begin{align*}
+\text{Exemple :~}
+\textit{Je marche tandis que je mange un gnou}
+\end{align*}
+\end{itemize}
+
+Pour tous les phénomènes grammaticaux pouvant être enchassés, nous avons choisi de limiter la récursion à $1$ (au plus un adjectif avant et un après un nom commun, au plus deux phrases accolées, au plus une seule subordonnée complétive). De cette manière, les phrases restent raisonnablement grandes et sont plus naturelles, et le générateur en produit un nombre fini.
 
 \section{Implémentation}
 \subsection{Lexique}
