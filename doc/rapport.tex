@@ -107,7 +107,7 @@ Pour obtenir plus facilement les informations relatives à un mot (sans utiliser
 \end{itemize}
 
 \subsection{Grammaire}
-Le fichier \texttt{grammaire.pl} contient notre grammaire. Chaque symbole est paramétré par son sous-arbre syntaxique ainsi qu'un ensemble d'informations le concernant. Les terminaux de la grammaire sont définis de manière à pouvoir changer de lexique facilement. Par exemple, le symbole \texttt{v} :
+Le fichier \texttt{grammaire.pl} contient notre grammaire. Chaque symbole est paramétré par son sous-arbre syntaxique ainsi qu'un ensemble d'informations le concernant. Les terminaux de la grammaire sont définis de manière à pouvoir changer de lexique facilement. Par exemple, le symbole \texttt{v/7} :
 \begin{verbatim}
 v(v(Mot),N,P,V,D) --> [Mot], {est(Mot, v),
 			      accord(Mot, N, _, P),
@@ -134,7 +134,7 @@ Pour tester notre travail, nous avons ajouté un fichier \texttt{main.pl} pouvan
 \begin{verbatim}
 ./main.pl
 \end{verbatim}
-Il affiche alors toutes les phrases engendrées par notre grammaire avec notre lexique. Cependant, cette manière de procéder a ses limites, et si le lexique est trop gros, ou s'il y a des règles engendrant trop de phrases dans la grammaire, alors la pile \Terme{Prolog} explose. Pour cette raison, une grande partie du lexique est commentée, ainsi que la seconde règle pour le symbole \texttt{s} de notre grammaire (Pour une grammaire engendrant $n$ phrases, ajouter cette règle fait engendrer $n^2$ phrases).
+Il affiche alors toutes les phrases engendrées par notre grammaire avec notre lexique. Cependant, cette manière de procéder a ses limites, et si le lexique est trop gros, ou s'il y a des règles engendrant trop de phrases dans la grammaire, alors la pile \Terme{Prolog} explose. Pour cette raison, une grande partie du lexique est commentée, ainsi que la seconde règle pour le symbole \texttt{s/6} de notre grammaire (Pour une grammaire engendrant $n$ phrases, ajouter cette règle et $m$ conjonctions de coordination fait engendrer $n^2\times m$ phrases).
 
 Ce problème est dû au fait que l'ensemble des phrases est généré avant d'être affiché. Une approche plus impérative permettrait de résoudre ce problème.
 
