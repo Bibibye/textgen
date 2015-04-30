@@ -80,6 +80,31 @@ Pour tous les phénomènes grammaticaux pouvant être enchassés, nous avons cho
 
 \section{Implémentation}
 \subsection{Lexique}
+Le fichier \texttt{lexique.pl} contient l'ensenble des mots utilisés par notre générateur pour produire ses phrases, ainsi qu'un ensemble de prédicats permettant d'extraire des informations sur ces mots. Un mot est un fait de la forme :
+\begin{verbatim}
+lex(mot,nature,nombre,genre,personne,valence,position,debut,forme).
+\end{verbatim}
+Avec :
+\begin{itemize}
+\item \texttt{mot} le mot dont il est question.
+\item \texttt{nature} la nature du mot (\texttt{nc} pour nom commun, \texttt{det} pour déterminant etc \dots).
+\item \texttt{nombre} et \texttt{genre} pouvant être respectivement \texttt{plur} ou \texttt{sing} et \texttt{masc} ou \texttt{fem}.
+\item \texttt{personne} un entier appartenant à $ \{1,2,3\} $.
+\item \texttt{valence} la valence des verbes (\texttt{n0}, \texttt{n1}, \texttt{comp}, \texttt{vcomp} etc \dots).
+\item \texttt{position} les positions possibles pour un adjectif (\texttt{post}, \texttt{pre} ou \texttt{both}).
+\item \texttt{debut} correspondant au premier son du mot (\texttt{voy} pour voyelle et \texttt{con} pour consonne).
+\item \texttt{forme} indiquant s'il s'agit d'une forme élidée ou non (\texttt{voy} pour la forme élidée, de manière à faire la correspondance avec les mots commençant par un son voyelle).
+\end{itemize}
+
+Pour obtenir plus facilement les informations relatives à un mot (sans utiliser \texttt{lex/9}), un certain nombre de prédicats ont été définis :
+\begin{itemize}
+\item \texttt{est(Mot,Nature)}
+\item \texttt{accord(Mot,Nature,Genre,Personne)}
+\item \texttt{valence(Mot,Valence)}
+\item \texttt{position(Mot,Position)}
+\item \texttt{debut(Mot,Debut)}
+\item \texttt{forme(Mot,Forme)}
+\end{itemize}
 
 \subsection{Grammaire}
 
