@@ -46,7 +46,7 @@ Ce projet, réalisé dans le cadre de l'unité d'enseignement \Terme{Web sémant
     \text{Exemple :~} \textit{Les grandes maroufles marchent}
   \end{align*}
 
-\item \textbf{Valence verbale.} Les verbes sont complémentés selon leur valence. 
+\item \textbf{Valence verbale.} Les verbes sont complétés selon leur valence. 
   \begin{align*}
     \text{Exemples :~} 
     &\textit{Je marche}\\
@@ -107,6 +107,27 @@ Pour obtenir plus facilement les informations relatives à un mot (sans utiliser
 \end{itemize}
 
 \subsection{Grammaire}
+Le fichier \texttt{grammaire.pl} contient notre grammaire. Chaque symbole est paramétré par son sous-arbre syntaxique ainsi qu'un ensemble d'informations le concernant. Les terminaux de la grammaire sont définis de manière à pouvoir changer de lexique facilement. Par exemple, le symbole \texttt{v} :
+\begin{verbatim}
+v(v(Mot),N,P,V,D) --> [Mot], {est(Mot, v),
+			      accord(Mot, N, _, P),
+			      valence(Mot, V),
+			      debut(Mot,D)}.
+\end{verbatim}
+
+Pour gérer la récursivité de certaines règles, nous avons ajouté un paramètre supplémentaire, comme pour le symbole de départ par exemple.
+\begin{verbatim}
+s(s(T1,T2),Enchassement,_,D) --> 
+    np(T1,N,P,_,D,F), 
+    vp(T2,N,P,F,Enchassement).
+
+s(s(T1,T2,T3),Enchassement,1,D) --> 
+    s(T1,Enchassement,0,D), 
+    cc(T2,F), 
+    s(T3,Enchassement,0,F).
+\end{verbatim}
+
+Le $2^e$ argument ici correspond à l'enchassement de subordonnées complétives, et le $3^e$ à la juxtaposition de phrases (s'il vaut $1$, on peut juxtaposer $2$ phrases pour lesquelles il vaudra $0$). La valeur de \texttt{Enchassement} est transmise jusqu'au syntagme verbal où se fait le choix de compléter ou non le verbe.
 
 \subsection{Tester le travail}
 
