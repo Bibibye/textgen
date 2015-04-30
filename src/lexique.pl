@@ -101,13 +101,6 @@ lex('que',cs,_,_,_,_,_,con,con).
 lex('qu',cs,_,_,_,_,_,con,voy).
 
 
-%% prépositions
-
-% lex('de',prep,_,_,_,_,_,con,con).
-% lex('d',prep,_,_,_,_,_,con,voy).
-% lex('à',prep,_,_,_,_,_,con,_).
-
-
 %% conjonctions de coordination
 
 % lex('mais',cc,_,_,_,_,_,con,_).
