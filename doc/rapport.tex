@@ -130,6 +130,15 @@ s(s(T1,T2,T3),Enchassement,1,D) -->
 Le $2^e$ argument ici correspond à l'enchassement de subordonnées complétives, et le $3^e$ à la juxtaposition de phrases (s'il vaut $1$, on peut juxtaposer $2$ phrases pour lesquelles il vaudra $0$). La valeur de \texttt{Enchassement} est transmise jusqu'au syntagme verbal où se fait le choix de compléter ou non le verbe.
 
 \subsection{Tester le travail}
+Pour tester notre travail, nous avons ajouté un fichier \texttt{main.pl} pouvant être exécuté directement, sans arguments :
+\begin{verbatim}
+./main.pl
+\end{verbatim}
+Il affiche alors toutes les phrases engendrées par notre grammaire avec notre lexique. Cependant, cette manière de procéder a ses limites, et si le lexique est trop gros, ou s'il y a des règles engendrant trop de phrases dans la grammaire, alors la pile \Terme{Prolog} explose. Pour cette raison, une grande partie du lexique est commentée, ainsi que la seconde règle pour le symbole \texttt{s} de notre grammaire (Pour une grammaire engendrant $n$ phrases, ajouter cette règle fait engendrer $n^2$ phrases).
+
+Ce problème est dû au fait que l'ensemble des phrases est généré avant d'être affiché. Une approche plus impérative permettrait de résoudre ce problème.
+
+Pour tester l'ensemble de la grammaire, il faut donc décommenter les lignes commençant par un '\%' simple dans les fichiers \texttt{lexique.pl} et \texttt{grammaire.pl}. Il faut alors ensuite utiliser un interprète \Terme{Prolog} et jouer avec la structure de l'arbre syntaxique pour obtenir les phrases qui nous intéressent.
 
 \end{document}
 
