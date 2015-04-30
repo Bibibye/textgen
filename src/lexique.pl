@@ -1,29 +1,29 @@
 % v vinf cs prep adj nc prn det
-est(W,X) :- lex(W,X,_,_,_,_,_,_,_).
+est(Mot,Nature) :- lex(Mot,Nature,_,_,_,_,_,_,_).
 
 % sing plur
-nombre(W,X) :- lex(W,_,X,_,_,_,_,_,_).
+nombre(Mot,Nombre) :- lex(Mot,_,Nombre,_,_,_,_,_,_).
 
 % masc fem
-genre(W,X) :- lex(W,_,_,X,_,_,_,_,_).
+genre(Mot,Genre) :- lex(Mot,_,_,Genre,_,_,_,_,_).
 
 % 1 2 3
-personne(W,X) :- lex(W,_,_,_,X,_,_,_,_).
+personne(Mot,Personne) :- lex(Mot,_,_,_,Personne,_,_,_,_).
 
 %%
-accord(W,N,G,P) :- lex(W,_,N,G,P,_,_,_,_).
+accord(Mot,Nombre,Genre,Personne) :- lex(Mot,_,Nombre,Genre,Personne,_,_,_,_).
 
 % n0 n1 aN1 deN1 comp vcomp aN1comp
-valence(W,V) :- lex(W,_,_,_,_,V,_,_,_).
+valence(Mot,Valence) :- lex(Mot,_,_,_,_,Valence,_,_,_).
 
 % pre post both
-position(W,P) :- lex(W,_,_,_,_,_,P,_,_).
+position(Mot,Position) :- lex(Mot,_,_,_,_,_,Position,_,_).
 
 % voy con
-debut(W,L) :- lex(W,_,_,_,_,_,_,L,_).
+debut(Mot,Debut) :- lex(Mot,_,_,_,_,_,_,Debut,_).
 
 % con voy
-forme(W,F) :- lex(W,_,_,_,_,_,_,_,F).
+forme(Mot,Forme) :- lex(Mot,_,_,_,_,_,_,_,Forme).
 
 % lex(mot,nature,nombre,genre,personne,valence,position,debut,forme)
 
